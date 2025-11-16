@@ -23,9 +23,10 @@
     }
 
     header img {
-      width: 280px;
-      max-width: 80%;
+      width: 320px;
+      max-width: 90%;
       animation: fadeIn 2s ease-out;
+      filter: drop-shadow(0 0 12px rgba(255,215,0,0.3));
     }
 
     @keyframes fadeIn {
@@ -50,7 +51,7 @@
       color: #ccc;
       max-width: 600px;
       margin: 1rem auto;
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
 
     .contact a {
@@ -61,13 +62,15 @@
       border-radius: 6px;
       font-weight: 600;
       text-decoration: none;
-      margin: 1rem;
+      margin: 1rem 0.5rem;
       transition: 0.3s;
+      box-shadow: 0 0 10px rgba(255,215,0,0.3);
     }
 
     .contact a:hover {
       background-color: #e5c100;
       transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255,215,0,0.5);
     }
 
     section.info {
@@ -85,6 +88,7 @@
       color: #ccc;
       max-width: 600px;
       margin: auto;
+      font-size: 1.05rem;
     }
 
     footer {
@@ -96,23 +100,34 @@
       border-top: 2px solid #cfa93e;
     }
 
-    /* ===== BANDERA CAMBIO IDIOMA ===== */
+    /* ===== BOTÓN CAMBIO IDIOMA (MEJORADO) ===== */
     .lang-switch {
       position: fixed;
       top: 15px;
       right: 15px;
-      background: #222;
-      border: 1px solid #cfa93e;
-      border-radius: 8px;
-      padding: 0.4rem 0.7rem;
-      font-size: 0.9rem;
-      color: #ffd700;
+      background: linear-gradient(135deg, #cfa93e, #ffd700);
+      border: 2px solid #000;
+      border-radius: 30px;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      color: #000;
       cursor: pointer;
-      transition: 0.3s;
+      font-weight: 700;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      z-index: 1000;
+      transition: all 0.3s ease;
     }
 
     .lang-switch:hover {
-      background: #333;
+      transform: scale(1.1);
+      background: linear-gradient(135deg, #ffd700, #cfa93e);
+    }
+
+    /* ===== MÓVIL ===== */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.6rem; }
+      .hero p { font-size: 1rem; }
+      .contact a { display: block; margin: 0.8rem auto; width: 80%; }
     }
   </style>
 </head>
@@ -121,14 +136,18 @@
   <!-- Botón idioma -->
   <div class="lang-switch" id="langBtn">🇪🇸 Español</div>
 
+  <!-- ENCABEZADO CON LOGO -->
   <header>
-    <!-- Logotipo (usa el archivo que generamos, súbelo al repo) -->
     <img src="logo-raysviprides.png" alt="Rays VIP Rides Logo">
   </header>
 
+  <!-- SECCIÓN PRINCIPAL -->
   <section class="hero">
     <h1 id="heroTitle">Viaja con estilo y puntualidad</h1>
-    <p id="heroText">Servicios de transporte VIP, aeropuerto, viajes ejecutivos y eventos especiales. Confort, elegancia y puntualidad garantizada.</p>
+    <p id="heroText">
+      Servicios de transporte VIP, aeropuerto, viajes ejecutivos y eventos especiales. 
+      Confort, elegancia y puntualidad garantizada.
+    </p>
 
     <div class="contact">
       <a href="https://wa.me/18326332762" target="_blank" id="whatsappBtn">Reservar por WhatsApp</a>
@@ -136,32 +155,40 @@
     </div>
   </section>
 
+  <!-- INFORMACIÓN -->
   <section class="info">
     <h2 id="whyTitle">Por qué elegirnos</h2>
-    <p id="whyText">Conductores profesionales, autos premium y atención personalizada. Rays VIP Rides te lleva con clase donde necesites ir.</p>
+    <p id="whyText">
+      Conductores profesionales, autos premium y atención personalizada. 
+      Rays VIP Rides te lleva con clase donde necesites ir.
+    </p>
   </section>
 
   <footer>
     © 2025 Rays VIP Rides — Rayner Martinez Laugart — Todos los derechos reservados.
   </footer>
 
-  <!-- ===== Traducción Automática (ES / EN) ===== -->
+  <!-- ===== SCRIPT TRADUCCIÓN AUTOMÁTICA (ES / EN) ===== -->
   <script>
     const texts = {
       es: {
         heroTitle: "Viaja con estilo y puntualidad",
-        heroText: "Servicios de transporte VIP, aeropuerto, viajes ejecutivos y eventos especiales. Confort, elegancia y puntualidad garantizada.",
+        heroText:
+          "Servicios de transporte VIP, aeropuerto, viajes ejecutivos y eventos especiales. Confort, elegancia y puntualidad garantizada.",
         whatsappBtn: "Reservar por WhatsApp",
         whyTitle: "Por qué elegirnos",
-        whyText: "Conductores profesionales, autos premium y atención personalizada. Rays VIP Rides te lleva con clase donde necesites ir.",
+        whyText:
+          "Conductores profesionales, autos premium y atención personalizada. Rays VIP Rides te lleva con clase donde necesites ir.",
       },
       en: {
         heroTitle: "Travel with style and punctuality",
-        heroText: "VIP transportation service for airport, corporate, and special events. Comfort, elegance, and punctuality guaranteed.",
+        heroText:
+          "VIP transportation services for airport, corporate, and special events. Comfort, elegance and punctuality guaranteed.",
         whatsappBtn: "Book via WhatsApp",
         whyTitle: "Why choose us",
-        whyText: "Professional drivers, premium vehicles, and personalized attention. Rays VIP Rides takes you where you need to go with class.",
-      }
+        whyText:
+          "Professional drivers, premium vehicles, and personalized service. Rays VIP Rides takes you where you need to go in style.",
+      },
     };
 
     const langBtn = document.getElementById("langBtn");
