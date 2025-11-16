@@ -4,105 +4,184 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rays VIP Rides</title>
+
   <style>
+    /* ===== ESTILO GENERAL ===== */
     body {
       margin: 0;
       font-family: "Poppins", sans-serif;
-      background-color: #0a0a0a;
-      color: #fafafa;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
     }
 
     header {
-      background-color: #111;
-      padding: 1rem 2rem;
       text-align: center;
-      font-weight: 600;
-      letter-spacing: 1px;
+      padding: 2rem 1rem 1rem;
+      background-color: #000;
+      position: relative;
     }
 
-    section.hero {
-      text-align: center;
-      padding: 4rem 2rem;
-      background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+    header img {
+      width: 280px;
+      max-width: 80%;
+      animation: fadeIn 2s ease-out;
     }
 
-    section.hero h1 {
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background: linear-gradient(135deg, #111, #1e1e1e);
+      border-top: 3px solid #cfa93e;
+      border-bottom: 3px solid #cfa93e;
+    }
+
+    .hero h1 {
       font-size: 2rem;
-      margin-bottom: 1rem;
+      color: #ffd700;
     }
 
-    section.hero p {
-      font-size: 1rem;
+    .hero p {
       color: #ccc;
       max-width: 600px;
-      margin: 0 auto;
+      margin: 1rem auto;
+      font-size: 1rem;
+    }
+
+    .contact a {
+      display: inline-block;
+      background-color: #ffd700;
+      color: #000;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      margin: 1rem;
+      transition: 0.3s;
+    }
+
+    .contact a:hover {
+      background-color: #e5c100;
+      transform: scale(1.05);
     }
 
     section.info {
-      padding: 2rem;
-      background: #121212;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background-color: #0a0a0a;
     }
 
     section.info h2 {
       color: #ffd700;
-      text-align: center;
-      font-weight: 500;
+      margin-bottom: 1rem;
     }
 
     section.info p {
-      text-align: center;
-      color: #ddd;
-      margin: 1rem auto;
+      color: #ccc;
       max-width: 600px;
+      margin: auto;
     }
 
     footer {
-      text-align: center;
       background-color: #111;
+      text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
       color: #888;
+      border-top: 2px solid #cfa93e;
     }
 
-    .contact {
-      margin-top: 1rem;
+    /* ===== BANDERA CAMBIO IDIOMA ===== */
+    .lang-switch {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: #222;
+      border: 1px solid #cfa93e;
+      border-radius: 8px;
+      padding: 0.4rem 0.7rem;
+      font-size: 0.9rem;
+      color: #ffd700;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    a.button {
-      background: #ffd700;
-      color: #000;
-      padding: 0.7rem 1.2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    a.button:hover {
-      background: #e6c200;
+    .lang-switch:hover {
+      background: #333;
     }
   </style>
 </head>
+
 <body>
+  <!-- Botón idioma -->
+  <div class="lang-switch" id="langBtn">🇪🇸 Español</div>
+
   <header>
-    Rays VIP Rides
+    <!-- Logotipo (usa el archivo que generamos, súbelo al repo) -->
+    <img src="logo-raysviprides.png" alt="Rays VIP Rides Logo">
   </header>
 
   <section class="hero">
-    <h1 id="hero-title">Viaja con estilo y puntualidad</h1>
-    <p>Servicios de transporte VIP, aeropuerto, viajes ejecutivos y eventos especiales. Comodidad, elegancia y seguridad garantizadas.</p>
+    <h1 id="heroTitle">Viaja con estilo y puntualidad</h1>
+    <p id="heroText">Servicios de transporte VIP, aeropuerto, viajes ejecutivos y eventos especiales. Confort, elegancia y puntualidad garantizada.</p>
+
     <div class="contact">
-      <a href="https://wa.me/1234567890" target="_blank" class="button">Reservar por WhatsApp</a>
+      <a href="https://wa.me/18326332762" target="_blank" id="whatsappBtn">Reservar por WhatsApp</a>
+      <a href="mailto:raynerml1203@gmail.com">Contactar por Email</a>
     </div>
   </section>
 
   <section class="info">
-    <h2>Por qué elegirnos</h2>
-    <p>Conductores profesionales, autos premium y atención personalizada. Rays VIP Rides te lleva con clase donde necesites ir.</p>
-    <p>Actualiza este texto en cualquier momento editando el archivo directamente desde GitHub.</p>
+    <h2 id="whyTitle">Por qué elegirnos</h2>
+    <p id="whyText">Conductores profesionales, autos premium y atención personalizada. Rays VIP Rides te lleva con clase donde necesites ir.</p>
   </section>
 
   <footer>
-    © 2025 Rays VIP Rides — Todos los derechos reservados.
+    © 2025 Rays VIP Rides — Rayner Martinez Laugart — Todos los derechos reservados.
   </footer>
+
+  <!-- ===== Traducción Automática (ES / EN) ===== -->
+  <script>
+    const texts = {
+      es: {
+        heroTitle: "Viaja con estilo y puntualidad",
+        heroText: "Servicios de transporte VIP, aeropuerto, viajes ejecutivos y eventos especiales. Confort, elegancia y puntualidad garantizada.",
+        whatsappBtn: "Reservar por WhatsApp",
+        whyTitle: "Por qué elegirnos",
+        whyText: "Conductores profesionales, autos premium y atención personalizada. Rays VIP Rides te lleva con clase donde necesites ir.",
+      },
+      en: {
+        heroTitle: "Travel with style and punctuality",
+        heroText: "VIP transportation service for airport, corporate, and special events. Comfort, elegance, and punctuality guaranteed.",
+        whatsappBtn: "Book via WhatsApp",
+        whyTitle: "Why choose us",
+        whyText: "Professional drivers, premium vehicles, and personalized attention. Rays VIP Rides takes you where you need to go with class.",
+      }
+    };
+
+    const langBtn = document.getElementById("langBtn");
+    let currentLang = navigator.language.startsWith("es") ? "es" : "en";
+
+    function setLang(lang) {
+      document.getElementById("heroTitle").textContent = texts[lang].heroTitle;
+      document.getElementById("heroText").textContent = texts[lang].heroText;
+      document.getElementById("whatsappBtn").textContent = texts[lang].whatsappBtn;
+      document.getElementById("whyTitle").textContent = texts[lang].whyTitle;
+      document.getElementById("whyText").textContent = texts[lang].whyText;
+      langBtn.textContent = lang === "es" ? "🇪🇸 Español" : "🇬🇧 English";
+      currentLang = lang;
+    }
+
+    setLang(currentLang);
+
+    langBtn.addEventListener("click", () => {
+      setLang(currentLang === "es" ? "en" : "es");
+    });
+  </script>
 </body>
 </html>
